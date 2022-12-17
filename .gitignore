@@ -1,0 +1,7 @@
+gRPC/bin/*
+gRPC/obj/*
+grpcClient/bin/*
+grpcClient/obj/*
+httpClient/bin/*
+httpClient/obj/*
+.DS_Store

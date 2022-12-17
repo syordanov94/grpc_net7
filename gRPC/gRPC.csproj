@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\google\api\annotations.proto" GrpcServices="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Access></Access>
+      <ProtoCompile></ProtoCompile>
+      <CompileOutputs></CompileOutputs>
+      <OutputDir></OutputDir>
+      <Generator></Generator>
+    </Protobuf>
+    <Protobuf Include="Protos\google\api\http.proto" GrpcServices="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Access></Access>
+      <ProtoCompile></ProtoCompile>
+      <CompileOutputs></CompileOutputs>
+      <OutputDir></OutputDir>
+      <Generator></Generator>
+    </Protobuf>
+    <Protobuf Include="Protos\greet.proto" GrpcServices="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Access></Access>
+      <ProtoCompile></ProtoCompile>
+      <CompileOutputs></CompileOutputs>
+      <OutputDir></OutputDir>
+      <Generator></Generator>
+    </Protobuf>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.45.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="7.0.0-preview.7.22376.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Microsoft.AspNetCore.Grpc.JsonTranscoding" />
+    <None Remove="Protos\google\api\annotations.proto" />
+    <None Remove="Protos\google\api\http.proto" />
+    <None Remove="Protos\google\" />
+    <None Remove="Protos\greet.proto" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Protos\google\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Protos\greet.proto">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
